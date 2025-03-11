@@ -1,0 +1,54 @@
+<odoo>
+    <record id="product_pricelist_item_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelistform.view.inherit</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[contains(@class, 'o_row')]" position="after">
+                <field name="max_perce_disc" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='max_perce_disc']" position="attributes">
+                <!-- <field name="fixed_discount" widget="monetary"/> -->
+                <attribute name="invisible">compute_price != 'percentage'</attribute>
+            </xpath>
+
+
+            <xpath expr="//div[contains(@class, 'o_row')]" position="after">
+                <field name="min_perce_disc" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='min_perce_disc']" position="attributes">
+                <!-- <field name="fixed_discount" widget="monetary"/> -->
+                <attribute name="invisible">compute_price != 'percentage'</attribute>
+            </xpath>
+
+
+            <xpath expr="//field[@name='price_surcharge']" position="after">
+                <field name="fixed_discount" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='fixed_discount']" position="attributes">
+                <!-- <field name="fixed_discount" widget="monetary"/> -->
+                <attribute name="invisible">compute_price != 'formula'</attribute>
+            </xpath>
+
+            
+            <xpath expr="//field[@name='fixed_discount']" position="after">
+                <field name="max_fix_disc" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='max_fix_disc']" position="attributes">
+                <!-- <field name="fixed_discount" widget="monetary"/> -->
+                <attribute name="invisible">compute_price != 'formula'</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='fixed_discount']" position="after">
+                <field name="min_fix_disc" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='min_fix_disc']" position="attributes">
+                <!-- <field name="fixed_discount" widget="monetary"/> -->
+                <attribute name="invisible">compute_price != 'formula'</attribute>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>
