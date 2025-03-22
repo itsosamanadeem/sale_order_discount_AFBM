@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_discount_selection,sale_order_selection_discount,model_sale_order_selection_discount,,1,1,1,1
+access_discount_sale_order,discount_sale_order,model_discount_sale_order,,1,1,1,1
